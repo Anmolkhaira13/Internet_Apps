@@ -1,0 +1,57 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+
+{% load static %}
+
+<body>
+
+<div class="container-fluid">
+<div class="container">
+<div class="row text-center">
+<div class="col-md-8"></div>
+
+<div class="col-md-3 pt-3 text-center "><i class="icofont-user icofont-4x "> <h4>Happy 2 Help</h4></i>
+</div>
+<div class="col-md-1"></div>
+
+</div>
+<div class="row  pt-3 text-center">
+<div class="col-md-8"></div>
+<div class="col-md-3 text-center"><h2>SIGN IN</h2></div>
+
+<br>
+</div>
+</div>
+<div class="row text-center">
+<div class="col-md-7"></div>
+
+<div class="col-md-4 pt-3 pb-3" style="border:1px solid black ; border-radius:5% ">
+
+<form method="post" action="{% url 'user_login' %}">
+  {% csrf_token %}
+<p >Sign in to start your session</p>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"><i class="icofont-envelope "></i></span>
+  </div>
+  <input type="text" name="username" class="form-control" placeholder="Username" required="required" aria-label="Username" aria-describedby="basic-addon1">
+</div><br>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"><i class="icofont-ui-lock "></i></span>
+  </div>
+  <input type="password" name="password" class="form-control" placeholder="Password" required="required" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+{% csrf_token %}
+<input type="submit" name="submit"  value="login" class="btn btn-info">
+</form>
+New User? &nbsp <h5 class="text-info">Click Here To register</h5>
+<h5 class="text-info">Forgot Password</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+{% endblock %}

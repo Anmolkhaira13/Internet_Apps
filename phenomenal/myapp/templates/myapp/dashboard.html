@@ -1,0 +1,129 @@
+<html>
+{% load static %}
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="{%static "css\bootstrap.min.css" %}" rel="stylesheet"/>
+<link rel="stylesheet" href="{%static "css\sidebar\style.default.css" %}">
+<link rel="shortcut icon" href="{%static "favicon.png" %}">
+<link rel="stylesheet" type="text/css" href="{%static "icofont\icofont.min.css" %}">
+<script src="{%static "js\jquery.js" %}"></script>
+<script src="{%static "js\popper.min.js" %}"></script>
+<script src="{%static "js\bootstrap.min.js" %}"></script>
+<!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{%static "css\style.css" %} ">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrapper" >
+        <!-- Sidebar  -->
+        <nav id="sidebar" class="bg-info">
+            <div class="sidebar-header bg-info">
+              <h2>Welcome </h2>
+              <h2> {{user.username}}</h2>
+              <hr>
+            </div>
+
+
+
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Happy 2 Help</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+
+                            <li class="nav-item">
+                                <a class="nav-link" href= "{% url 'myorders' %}">My Orders</a>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href ="{% url 'user_logout' %}">Log Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+{% block content %}
+{% endblock %}
+</div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
+</div>
+
+<div class="container-fluid" style="background-color:lightblue" >
+    <div class="row  p-5 " >
+    <div class="col-md-4 text-center" >
+    <h2><i class="icofont-medical-sign-alt icofont-1x "></i> Find us on</h2><br>
+    <a href="https://www.facebook.com/" target="_blank" ><i class="icofont-facebook icofont-1x "></i></a>
+    <a href="https://aboutme.google.com/u/0/?referer=gplus" target="_blank" ><i class="icofont-google-plus icofont-1x "></i></a>
+    <a href="https://twitter.com/Twitter?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" ><i class="icofont-twitter icofont-1x "></i></a>
+    <a href="https://www.instagram.com/?hl=en" target="_blank" ><i class="icofont-instagram icofont-1x "></i></a>
+    <a href="https://www.snapchat.com/" target="_blank" ><i class="icofont-snapchat icofont-1x "></i></a>
+    <a href="https://www.skype.com/en/" target="_blank" ><i class="icofont-skype icofont-1x "></i></a>
+    <a href="https://www.whatsapp.com/" target="_blank" ><i class="icofont-whatsapp icofont-1x "></i></a>
+    </div>
+
+    <div class="col-md-4">
+    <h2><i class="icofont-search-property icofont-1x" ></i>Visit Us</h2><br>
+    <i class="icofont-location-pin "></i>SCO-9, B-Block Ranjit Avenue,Amritsar,Punjab<br>
+    <i class="icofont-ui-call "></i>9783366710<br>
+    <i class="icofont-ui-dial-phone "></i>+01832553467<br>
+    <i class="icofont-email "></i>arpanrandhawa88633@gmail.com<br>
+    <i class="icofont-envelope "></i>anmolkhaira327@gmail.com<br>
+    <i class="icofont-globe "></i>www.HappyToHelp.com
+    </div>
+    <div class="col-md-4 text-center">
+    <h2><i class="icofont-doctor icofont-1x"></i> Our Expertise</h2><br>
+    <div class="col-md-12 text-center">
+    <img src={%static "images/d5.jpg" %} style="width:70px;height:70px;" >
+    <img src={%static "images/d6.jpg" %} style="width:70px;height:70px;"><br>
+    <img src={%static "images/d3.jpg" %} style="width:70px;height:70px;">
+    <img src={%static "images/d4.jpg" %} style="width:70px;height:70px;">
+    </div>
+    <br></div>
+    <br>
+    <div class="row">
+    <div class="col-md-12">
+    <p><i class="icofont-copyright "></i>2019.All Rights Reserved</p></div>
+    </div>
+    </div>
+    </div>
+    </body>
+</html>

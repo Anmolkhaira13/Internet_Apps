@@ -1,0 +1,22 @@
+
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+
+{% load static %}
+
+<body>
+
+{% if  m %}
+ <h2>Location of Warehouse</h2>
+ <ol>
+
+ <li> {{ m }} </li>
+
+ </ol>
+{% endif %}
+
+
+</body>
+
+{% endblock %}
