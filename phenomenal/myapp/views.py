@@ -6,6 +6,7 @@ from django.urls import reverse
 from .models import Category, Product, Client, Order
 from django.shortcuts import get_object_or_404
 from .forms import OrderForm
+from .forms import UserForm
 from .forms import InterestForm
 from django.contrib.auth.models import User
 
@@ -127,3 +128,20 @@ def productdetail(request, prod_id):
     form = InterestForm()
     prod_info = Product.objects.filter(id =prod_id)
     return render(request, 'myapp/productdetail.html', {'prod_info':prod_info, 'form': InterestForm })
+
+
+def register(request):
+    registered = False
+    if request.method == "POST":
+        user_form = UserForm(data=request.POST)
+        if user_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            return render(request, 'myapp/login.html')
+
+        else:
+            print(user_form.errors)
+    else:
+        user_form = UserForm()
+    return render(request, "myapp/register.html", {'user_form': user_form, registered: 'registered'})

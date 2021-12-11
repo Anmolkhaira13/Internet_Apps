@@ -1,0 +1,37 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+
+{% load static %}
+
+<body style="background-image:url('{%static "images/3.jpg" %}'); background-size:cover; ">
+<div class="container-fluid  ">
+<div class="row   text-center">
+<div class="col-md-1"></div>
+<div class="col-md-5 "><br>
+<i class="icofont-user-alt-5 icofont-3x text-primary "></i>
+<h2>Registration</h2>
+</div>
+</div>
+{% load crispy_forms_tags %}
+<div class="row pt-3 pb-3 text-center">
+<div class="col-md-1"></div>
+<div class="col-md-5 pt-3 pb-3 " style="border:1px solid black ; border-radius:5% ">
+<form method="post">
+  {% csrf_token %}
+  {{ user_form.errors }}
+  {{ user_form.username|as_crispy_field}}<br>
+  {{ user_form.email|as_crispy_field }}<br>
+  {{ user_form.password|as_crispy_field }}<br>
+
+Confirm Password*
+<input type="password" class="form-control"required="required"><br>
+<button class="btn btn-primary">Submit</button>
+<br><br>Already have an account? <a href="{% url 'user_login' %}">sign in here</a>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

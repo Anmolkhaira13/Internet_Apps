@@ -33,5 +33,6 @@ urlpatterns = [
     path('myapp/usr_login/', views.user_login, name="user_login"),
     path('myapp/usr_logout/', views.user_logout, name="user_logout"),
     path('myapp/dashboard/', views.dashboard, name="dashboard"),
+    path('myapp/register/', views.register, name="register"),
 
 ]
